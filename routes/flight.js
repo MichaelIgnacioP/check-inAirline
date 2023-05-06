@@ -88,7 +88,7 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
         res.status(200).json({ code: 200, data: response });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ code: 500, error: 'Internal server error' });
+        res.status(500).json({ code: 400, error: 'Internal server error' });
     }
 });
 

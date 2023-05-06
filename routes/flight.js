@@ -7,6 +7,12 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
+///////////////////////////////////////////////////////
+//////////////////////MIDDLEWARES//////////////////////
+///////////////////////////////////////////////////////
+
+const loggingMiddleware = require('../middlewares/loggingMiddleware');
+
 
 ///////////////////////////////////////////////////////
 ////////////////////////HELPERS////////////////////////
@@ -21,7 +27,7 @@ const validateEconomyClass = require('../helpers/validateEconomyClass');
 ///////////////////////////////////////////////////////
 
 
-router.get('/flights/:id/passengers', async (req, res) => {
+router.get('/flights/:id/passengers', loggingMiddleware, async (req, res) => {
     const flightId = req.params.id;
 
     try {

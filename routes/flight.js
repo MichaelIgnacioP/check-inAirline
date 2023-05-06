@@ -30,6 +30,10 @@ router.get('/flights/:id/passengers', async (req, res) => {
         );
         const flight = flightRows[0];
 
+        if (!flight) {
+            return res.status(404).json({ code: 404, data: {} });
+        }
+
         const [boardingPassRows, fields2] = await pool.execute(`
             SELECT bp.*, st.name AS seat_type_name, p.*
             FROM boarding_pass bp

@@ -75,14 +75,11 @@ router.get('/flights/:id/passengers', async (req, res) => {
             passengers: _.mapKeys(passengers, (value, key) => _.camelCase(key))
         };
 
-        res.status(200).json({
-            code: 200,
-            data: response
-        });
+        res.status(200).json({ code: 200, data: response });
     } catch (error) {
         console.error(error);
         res.status(500).json({ code: 500, error: 'Internal server error' });
-    } 
+    }
 });
 
 module.exports = router;

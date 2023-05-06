@@ -12,7 +12,7 @@ const createConnectionPool = () => {
     });
 
     pool.getConnection().then(connection => {
-        console.log('Connected to MySQL database');
+        console.log(`Connected to ${process.env.DB_DATABASE} MySQL database`);
         connection.release();
     }).catch(error => {
         console.error('Error connecting to MySQL:', error);

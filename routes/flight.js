@@ -66,13 +66,13 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
         const isEconomyClassValid = validateEconomyClass(passengers);
 
         if (!isCompanionsValid) {
-            return res.status(400).json({ code: 400, error: 'Invalid companions' });
+            return res.status(400).json({ code: 400, error: 'Error en la validación de acompañantes' });
         }
-        // if (!isAdjacentSeatsValid) {
-        //     return res.status(400).json({ code: 400, error: 'Invalid adjacent seats' });
-        // }
+        if (!isAdjacentSeatsValid) {
+            return res.status(400).json({ code: 400, error: 'Error en la validación de asientos adyacentes' });
+        }
         if (!isEconomyClassValid) {
-            return res.status(400).json({ code: 400, error: 'Invalid seat type' });
+            return res.status(400).json({ code: 400, error: 'Error en la validación clase económica' });
         }
 
         const response = {

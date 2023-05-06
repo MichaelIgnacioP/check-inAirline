@@ -65,37 +65,34 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 **Respuesta exitosa (código 200):**
 
-```json
-
 {
-    "code": 200,
-        "data": {
-        "flightId": 1,
-            "takeoffDateTime": 1688207580,
-                "takeoffAirport": "Aeropuerto Internacional Arturo Merino Benitez, Chile",
-                    "landingDateTime": 1688221980,
-                        "landingAirport": "Aeropuerto Internacional Jorge Cháve, Perú",
-                            "airplaneId": 1,
-                                "passengers": [
-                                    {
-                                        "passengerId": 90,
-                                        "dni": 983834822,
-                                        "name": "Marisol",
-                                        "age": 44,
-                                        "country": "México",
-                                        "boardingPassId": 24,
-                                        "purchaseId": 47,
-                                        "seatTypeId": 1,
-                                        "seatId": 1
-                                    },
-                                    { ...}
-                                ]
-    }
+  "code": 200,
+  "data": {
+    "flightId": 1,
+    "takeoffDateTime": 1688207580,
+    "takeoffAirport": "Aeropuerto Internacional Arturo Merino Benitez, Chile",
+    "landingDateTime": 1688221980,
+    "landingAirport": "Aeropuerto Internacional Jorge Cháve, Perú",
+    "airplaneId": 1,
+    "passengers": [
+      {
+        "passengerId": 90,
+        "dni": 983834822,
+        "name": "Marisol",
+        "age": 44,
+        "country": "México",
+        "boardingPassId": 24,
+        "purchaseId": 47,
+        "seatTypeId": 1,
+        "seatId": 1
+      },
+      { ... }
+    ]
+  }
 }
 
 **Respuesta de error vuelo no encontrado (código 404):**
 
-```json
 {
   "code": 404,
   "data": {}
@@ -103,7 +100,6 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 **Respuesta de error (código 400):**
 
-```json
 {
   "code": 400,
   "errors": "could not connect to db"
@@ -111,7 +107,6 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 **Respuesta de error (error en la validación de acompañantes):**
 
-```json
 {
   "code": 400,
   "error": "Error en la validación de acompañantes"
@@ -119,7 +114,6 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 **Respuesta de error (error en la validación de asientos adyacentes):**
 
-```json
 {
   "code": 400,
   "error": "Error en la validación de asientos adyacentes"
@@ -127,7 +121,6 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 **Respuesta de error (error en la validación de asientos adyacentes):**
 
-```json
 {
   "code": 400,
   "error": "Error en la validación clase económica"

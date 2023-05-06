@@ -14,7 +14,9 @@ Asegúrate de tener instalado Node.js y MySQL en tu sistema.
 2. Abre una terminal y navega hasta el directorio del proyecto.
 3. Ejecuta el siguiente comando para instalar las dependencias:
 
+```shell
 npm install
+```
 
 ### 2. Configuración de la base de datos
 
@@ -30,7 +32,9 @@ PORT=<puerto-de-la-aplicación>
 
 1. Ejecuta el siguiente comando para iniciar la API:
 
+```shell
 npm start
+```
 
 2. La API estará disponible en `http://localhost:<puerto>`, donde `<puerto>` es el número de puerto especificado en el archivo `.env`.
 
@@ -64,7 +68,7 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 - `id` (número): El ID del vuelo del que se desea obtener información.
 
 **Respuesta exitosa (código 200):**
-
+```json
 {
   "code": 200,
   "data": {
@@ -90,42 +94,43 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
     ]
   }
 }
+```
 
 **Respuesta de error vuelo no encontrado (código 404):**
-
+```json
 {
   "code": 404,
   "data": {}
 }
-
+```
 **Respuesta de error (código 400):**
-
+```json
 {
   "code": 400,
   "errors": "could not connect to db"
 }
-
+```
 **Respuesta de error (error en la validación de acompañantes):**
-
+```json
 {
   "code": 400,
   "error": "Error en la validación de acompañantes"
 }
-
+```
 **Respuesta de error (error en la validación de asientos adyacentes):**
-
+```json
 {
   "code": 400,
   "error": "Error en la validación de asientos adyacentes"
 }
-
+```
 **Respuesta de error (error en la validación de asientos adyacentes):**
-
+```json
 {
   "code": 400,
   "error": "Error en la validación clase económica"
 }
-
+```
 ## Instrucciones para realizar pruebas
 
 Puedes utilizar herramientas como Postman o Thunder Client para realizar pruebas de las rutas de la API. A continuación te muestro un ejemplo utilizando Postman para obtener información de los pasajeros de un vuelo mediante los params:
@@ -138,7 +143,6 @@ Recibirás una respuesta en formato JSON con información sobre los pasajeros de
 
 ## Consideraciones adicionales
 
-- La API utiliza una conexión a la base de datos MySQL. Asegúrate de tener una base de datos válida y configura las variables de entorno correspondientes en el archivo `.env`.
 - La API implementa validaciones de los datos de los pasajeros, como la validación de acompañantes, asientos adyacentes y clase económica.
 - Se han proporcionado los archivos y bibliotecas necesarios en la estructura del proyecto.
 - El archivo `.gitignore` excluye los archivos `node_modules/` y `package-lock.json`, por lo que no se incluirán en el repositorio. Asegúrate de ejecutar `npm install` para instalar las dependencias antes de ejecutar la API.

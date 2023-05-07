@@ -23,9 +23,13 @@ npm install
 1. Crea un archivo .env en el directorio raíz del proyecto y configura las variables de entorno necesarias para la conexión a la base de datos MySQL. Asegúrate de incluir las siguientes variables:
 
 DB_HOST=`<host-de-la-base-de-datos>`
+
 DB_USER=`<usuario-de-la-base-de-datos>`
+
 DB_PASSWORD=`<contraseña-de-la-base-de-datos>`
+
 DB_DATABASE=`<nombre-de-la-base-de-datos>`
+
 PORT=`<puerto-de-la-aplicación>`
 
 ### 3. Ejecución
@@ -135,7 +139,7 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 Puedes utilizar herramientas como Postman o Thunder Client para realizar pruebas de las rutas de la API. A continuación te muestro un ejemplo utilizando Postman para obtener información de los pasajeros de un vuelo mediante los params:
 
-http://localhost:`<puerto>`/flights/1/passengers
+`http://localhost:<puerto>/flights/1/passengers`
 
 Reemplaza `<puerto>` por el número de puerto en el que se está ejecutando la API.
 

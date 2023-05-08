@@ -1,4 +1,4 @@
-const loggingMiddleware = (req, res, next) => {
+const logging = (req, res, next) => {
     const { method, url } = req;
     const start = Date.now();
 
@@ -12,4 +12,4 @@ const loggingMiddleware = (req, res, next) => {
     next();
 };
 
-module.exports = loggingMiddleware;
+module.exports = logging;

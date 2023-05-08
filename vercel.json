@@ -9,11 +9,11 @@
     "routes": [
         {
             "src": "/flights/:id/passengers",
-            "dest": "./routes/flight.js"
+            "dest": "/routes/flight.js"
         },
         {
             "src": "/(.*)",
-            "dest": "./index.js"
+            "dest": "/index.js"
         }
     ]
 }

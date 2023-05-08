@@ -5,9 +5,9 @@ const flightRouter = require('./routes/flight');
 const app = express();
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//   res.send('API funcionando correctamente');
-// });
+app.get('/', (req, res) => {
+  res.send('API funcionando correctamente');
+});
 
 app.use('/', flightRouter);
 

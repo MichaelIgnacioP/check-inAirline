@@ -145,6 +145,15 @@ Reemplaza `<puerto>` por el número de puerto en el que se está ejecutando la A
 
 Recibirás una respuesta en formato JSON con información sobre los pasajeros del vuelo.
 
+## Despliegue
+
+La aplicación se ha desplegado utilizando Vercel debido a su compatibilidad con Node.js y su facilidad de uso. Vercel es una plataforma de despliegue y alojamiento que permite implementar aplicaciones web estáticas y de servidor de forma rápida y sencilla.
+
+
+```shell
+https://check-in-airline.vercel.app/flights/1/passengers
+```
+
 ## Consideraciones adicionales
 
 - La API implementa validaciones de los datos de los pasajeros, como la validación de acompañantes, asientos adyacentes y clase económica.

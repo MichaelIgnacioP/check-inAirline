@@ -8,7 +8,7 @@
     ],
     "routes": [
         {
-            "src": "/flights/1/passengers",
+            "src": "/flights/:id/passengers",
             "dest": "./routes/flight.js"
         },
         {

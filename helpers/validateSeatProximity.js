@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const validateSeatProximity = async (passengers) => {
     try {
       const purchases = _.groupBy(passengers, (p) => p.purchaseId);

@@ -51,7 +51,7 @@ El código de la solución se divide en varios archivos y carpetas:
 - `db.js`: Este archivo establece la conexión a la base de datos MySQL y crea un pool de conexiones reutilizables.
 - `middlewares/logging.js`: Este archivo define un middleware que registra los detalles de las solicitudes entrantes.
 - `helpers/validateCompanions.js`: Este archivo contiene una función que valida si los acompañantes de los pasajeros son correctos.
-- `helpers/validateAdjacentSeats.js`: Este archivo contiene una función que valida si los asientos adyacentes de los pasajeros son correctos.
+- `helpers/validateSeatProximity.js`: Este archivo contiene una función que valida la proximidad de asientos para un grupo de pasajeros. 
 - `helpers/validateEconomyClass.js`: Este archivo contiene una función que valida si la clase económica de los pasajeros es correcta.
 
 ### Dependencias principales
@@ -156,7 +156,7 @@ https://check-in-airline.vercel.app/flights/1/passengers
 
 ## Consideraciones adicionales
 
-- La API implementa validaciones de los datos de los pasajeros, como la validación de acompañantes, asientos adyacentes y clase económica.
+- La API implementa validaciones de los datos de los pasajeros, como la validación de acompañantes, proximidad de asientos y clase económica.
 - Se han proporcionado los archivos y bibliotecas necesarios en la estructura del proyecto.
 - El archivo `.gitignore` excluye los archivos `node_modules/` y `package-lock.json`, por lo que no se incluirán en el repositorio. Asegúrate de ejecutar `npm install` para instalar las dependencias antes de ejecutar la API.
 - Se considera un middleware para el control de métricas importantes, y una de las más relevantes es el tiempo de respuesta.

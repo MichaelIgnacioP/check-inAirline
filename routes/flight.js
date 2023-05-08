@@ -19,7 +19,7 @@ const logging = require('../middlewares/logging');
 ///////////////////////////////////////////////////////
 
 const validateCompanions = require('../helpers/validateCompanions');
-const validateAdjacentSeats = require('../helpers/validateAdjacentSeats');
+const validateSeatProximity = require('../helpers/validateSeatProximity');
 const validateEconomyClass = require('../helpers/validateEconomyClass');
 
 ///////////////////////////////////////////////////////
@@ -64,14 +64,14 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
         }));
 
         const isCompanionsValid = validateCompanions(passengers);
-        const isAdjacentSeatsValid = validateAdjacentSeats(passengers);
+        const isSeatProximity = validateSeatProximity(passengers);
         const isEconomyClassValid = validateEconomyClass(passengers);
 
         if (!isCompanionsValid) {
             return res.status(400).json({ code: 400, error: 'Error en la validación de acompañantes' });
         }
-        if (!isAdjacentSeatsValid) {
-            return res.status(400).json({ code: 400, error: 'Error en la validación de asientos adyacentes' });
+        if (!isSeatProximity) {
+            return res.status(400).json({ code: 400, error: 'Error en la validación de proximidad de asientos' });
         }
         if (!isEconomyClassValid) {
             return res.status(400).json({ code: 400, error: 'Error en la validación clase económica' });

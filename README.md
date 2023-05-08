@@ -161,6 +161,9 @@ https://check-in-airline.vercel.app/flights/1/passengers
 - El archivo `.gitignore` excluye los archivos `node_modules/` y `package-lock.json`, por lo que no se incluirán en el repositorio. Asegúrate de ejecutar `npm install` para instalar las dependencias antes de ejecutar la API.
 - Se considera un middleware para el control de métricas importantes, y una de las más relevantes es el tiempo de respuesta.
 
+**Nota:**
+
+En la respuesta del endpoint, algunos campos pueden contener valores nulos. Si esto ocurre, se recomienda revisar la base de datos para garantizar que los datos estén completos y correctamente ingresados. Es posible que algunos registros no tengan valores asignados para ciertos campos.
 
 
 ¡Gracias por revisar esta documentación! Si tienes alguna pregunta o inquietud, no dudes en contactarme.

@@ -31,7 +31,7 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
     const flightId = req.params.id;
 
     try {
-        const [flightRows, fields1] = await pool.execute(
+        const [flightRows] = await pool.execute(
             'SELECT * FROM flight WHERE flight_id = ?',
             [flightId]
         );
@@ -41,7 +41,7 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
             return res.status(404).json({ code: 404, data: {} });
         }
 
-        const [boardingPassRows, fields2] = await pool.execute(
+        const [boardingPassRows] = await pool.execute(
             `SELECT bp.*, st.name AS seat_type_name, p.*
              FROM boarding_pass bp
              INNER JOIN seat_type st ON bp.seat_type_id = st.seat_type_id

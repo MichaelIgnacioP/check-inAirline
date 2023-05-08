@@ -40,7 +40,7 @@ PORT=`<puerto-de-la-aplicación>`
 npm start
 ```
 
-2. La API estará disponible en `http://localhost:<puerto>`, donde `<puerto>` es el número de puerto especificado en el archivo `.env`.
+2. La API estará disponible en la URL `http://localhost:<puerto>`, donde `<puerto>` es el número de puerto especificado en el archivo `.env`.
 
 ## Descripción de la solución
 
@@ -145,11 +145,19 @@ Reemplaza `<puerto>` por el número de puerto en el que se está ejecutando la A
 
 Recibirás una respuesta en formato JSON con información sobre los pasajeros del vuelo.
 
+## Despliegue
+
+La aplicación se ha desplegado utilizando Vercel debido a su compatibilidad con Node.js y su facilidad de uso. Vercel es una plataforma de despliegue y alojamiento que permite implementar aplicaciones web estáticas y de servidor de forma rápida y sencilla.
+
+`https://check-in-airline.vercel.app/flights/1/passengers`
+
+
 ## Consideraciones adicionales
 
 - La API implementa validaciones de los datos de los pasajeros, como la validación de acompañantes, asientos adyacentes y clase económica.
 - Se han proporcionado los archivos y bibliotecas necesarios en la estructura del proyecto.
 - El archivo `.gitignore` excluye los archivos `node_modules/` y `package-lock.json`, por lo que no se incluirán en el repositorio. Asegúrate de ejecutar `npm install` para instalar las dependencias antes de ejecutar la API.
+- Se considera un middleware para el control de métricas importantes, y una de las más relevantes es el tiempo de respuesta.
 
 
 

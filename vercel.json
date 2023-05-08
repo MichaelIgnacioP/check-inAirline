@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/flights/1/passengers",
-            "dest": "./routes/flights.js"
+            "dest": "./routes/flight.js"
         },
         {
             "src": "/(.*)",

@@ -32,7 +32,8 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
 
     try {
         const [flightRows, fields1] = await pool.execute(
-            `SELECT * FROM flight WHERE flight_id = ${flightId}`
+            'SELECT * FROM flight WHERE flight_id = ?',
+            [flightId]
         );
         const flight = flightRows[0];
 
@@ -40,13 +41,14 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
             return res.status(404).json({ code: 404, data: {} });
         }
 
-        const [boardingPassRows, fields2] = await pool.execute(`
-            SELECT bp.*, st.name AS seat_type_name, p.*
-            FROM boarding_pass bp
-            INNER JOIN seat_type st ON bp.seat_type_id = st.seat_type_id
-            INNER JOIN passenger p ON bp.passenger_id = p.passenger_id
-            WHERE bp.flight_id = ${flightId}
-        `);
+        const [boardingPassRows, fields2] = await pool.execute(
+            `SELECT bp.*, st.name AS seat_type_name, p.*
+             FROM boarding_pass bp
+             INNER JOIN seat_type st ON bp.seat_type_id = st.seat_type_id
+             INNER JOIN passenger p ON bp.passenger_id = p.passenger_id
+             WHERE bp.flight_id = ?`,
+            [flightId]
+          );
         const boardingPasses = boardingPassRows;
 
         const passengers = boardingPasses.map(boardingPass => ({
@@ -77,9 +79,9 @@ router.get('/flights/:id/passengers', logging, async (req, res) => {
 
         const response = {
             flightId: flight.flight_id,
-            takeoffDatetime: flight.takeoff_datetime ? new Date(flight.takeoff_datetime).getTime() / 1000 : null,
+            takeoffDatetime: flight.takeoff_datetime !== null ? new Date(flight.takeoff_datetime).getTime() / 1000 : null,
             takeoffAirport: flight.takeoff_airport,
-            landingDatetime: flight.landing_datetime ? new Date(flight.landing_datetime).getTime() / 1000 : null,
+            landingDatetime: flight.landing_datetime !== null ? new Date(flight.landing_datetime).getTime() / 1000 : null,
             landingAirport: flight.landing_airport,
             airplaneId: flight.airplane_id,
             passengers: _.mapKeys(passengers, (value, key) => _.camelCase(key))

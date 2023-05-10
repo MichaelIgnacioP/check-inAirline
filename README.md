@@ -121,14 +121,14 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
   "error": "Error en la validación de acompañantes"
 }
 ```
-**Respuesta de error (error en la validación de asientos adyacentes):**
+**Respuesta de error (error en la validación de proximidad de asientos):**
 ```json
 {
   "code": 400,
-  "error": "Error en la validación de asientos adyacentes"
+  "error": "Error en la validación de proximidad de asientos"
 }
 ```
-**Respuesta de error (error en la validación de asientos adyacentes):**
+**Respuesta de error (error en la validación clase económica):**
 ```json
 {
   "code": 400,
@@ -139,7 +139,9 @@ Esta ruta devuelve información sobre los pasajeros de un vuelo específico.
 
 Puedes utilizar herramientas como Postman o Thunder Client para realizar pruebas de las rutas de la API. A continuación te muestro un ejemplo utilizando Postman para obtener información de los pasajeros de un vuelo mediante los params:
 
-`http://localhost:<puerto>/flights/1/passengers`
+```shell
+http://localhost:<puerto>/flights/1/passengers
+```
 
 Reemplaza `<puerto>` por el número de puerto en el que se está ejecutando la API.
 
